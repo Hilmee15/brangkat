@@ -9,7 +9,7 @@
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- general form elements -->
-                        <div class="card card-primary">
+                        <div class="card] card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Create Destination</h3>
                             </div>
@@ -43,6 +43,7 @@
                                             @foreach ($city as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
