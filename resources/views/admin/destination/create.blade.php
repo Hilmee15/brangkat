@@ -9,7 +9,7 @@
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- general form elements -->
-                        <div class="card] card-primary">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Create Destination</h3>
                             </div>
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Description</label>
-                                        <input type="text" name="desc" class="form-control" id="exampleInputPassword1"
+                                        <input type="text" name="description" class="form-control" id="exampleInputPassword1"
                                             placeholder="Deskripsi Destinasi">
                                     </div>
                                     <div class="form-group">
