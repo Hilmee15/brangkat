@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Destination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class WebDestinationController extends Controller
 {
@@ -53,9 +54,9 @@ class WebDestinationController extends Controller
 
         if ($request->file('image')) {
             $file = $request->file('image');
-            $filename = date('YmdHi'). '.' . $file->getClientOriginalExtension();
-            $file->move('uploads', $filename);
-            $data['image'] = $filename;
+            $filename = date('YmdHi') . '.' . $file->getClientOriginalExtension();
+            $path = Storage::putFileAs('uploads', $file, $filename);
+            $data['image'] = $path;
         }
 
         Destination::create($data);
@@ -69,7 +70,7 @@ class WebDestinationController extends Controller
         $destination = Destination::findOrFail($id);
 
         if ($request->hasFile('image')) {
-            $path = "uploads/". $destination->image;
+            $path = "uploads/" . $destination->image;
             if (File::exists($path)) {
                 File::delete($path);
             }
@@ -86,10 +87,10 @@ class WebDestinationController extends Controller
     public function destroy($id)
     {
         $destination = Destination::findOrFail($id);
-        $path = "uploads/". $destination->image;
-            if (File::exists($path)) {
-                File::delete($path);
-            }
+        $path = "uploads/" . $destination->image;
+        if (File::exists($path)) {
+            File::delete($path);
+        }
         $destination->delete();
         return redirect()->route('destination.view')->with('success', 'Berhasil menghapus Destinasi');
     }
