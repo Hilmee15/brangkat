@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('description');
             $table->string('image');
-            // $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('city_id');
             // $table->foreignId('city_id')->constrained('cities')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
