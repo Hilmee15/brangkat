@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BrangkatIndexController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WebCityController;
 use App\Http\Controllers\WebDestinationController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +19,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// // Auth Routes
+// Route::get('/', function () {
+//     return redirect()->route('login.view');
+// })->middleware('guest'); // Navigation into the login page
+// Route::get('/login', [WebAuthController::class, 'viewLogin'])->name('login.view')->middleware('guest'); // Navigation into the login page
+// Route::get('/register', [WebAuthController::class, 'viewRegister'])->name('register.view')->middleware('guest'); // Navigation into the register page
+// Route::post('/login', [WebAuthController::class, 'login'])->name('login.post'); // Login
+// Route::post('/register', [AuthController::class, 'register'])->name('register.post'); // Register
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth'); // Logout
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
 
 // Pages Routes
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // Dashboard
@@ -39,3 +58,6 @@ Route::post('/city/create', [WebCityController::class, 'store'])->name('city.sto
 Route::get('/city/edit/{id}', [WebCityController::class, 'viewEdit'])->name('city.edit'); // Edit City
 Route::post('/city/{id}', [WebCityController::class, 'update'])->name('city.update'); // Update City
 Route::get('/city/delete/{id}', [WebCityController::class, 'destroy'])->name('city.delete'); // Delete City
+
+Route::get('/main', [BrangkatIndexController::class, 'main'])->name('main'); // Main
+Route::get('/article', [BrangkatIndexController::class, 'article'])->name('article'); // Article
