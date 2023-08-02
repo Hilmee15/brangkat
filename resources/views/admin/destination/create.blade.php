@@ -27,7 +27,7 @@
                                         <label for="exampleInputFile">Insert the Destination Image</label>
 
 
-                                        <input type="file" name="image" class="custom-file-input"
+                                        <input type="file" name="img_destinasi" class="custom-file-input"
                                             id="exampleInputFile">
 
 
