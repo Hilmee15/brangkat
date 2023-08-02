@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Destination;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class WebDestinationController extends Controller
@@ -43,21 +42,27 @@ class WebDestinationController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $request->validate(
-            [
-                'name' => 'required|max:100',
-                'description' => 'required',
-                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            ]
-        );
+        // $request->validate(
+        //     [
+        //         'name' => 'required|max:100',
+        //         'description' => 'required',
+        //         'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        //     ]
+        // );
+        
 
-
-        if ($request->file('image')) {
-            $file = $request->file('image');
+        if ($request->hasFile('img_destinasi')) {
+            // die("Sudah masukkan img_destinasinya");
+            $file = $request->file('img_destinasi');
             $filename = date('YmdHi') . '.' . $file->getClientOriginalExtension();
-            $path = Storage::putFileAs('uploads', $file, $filename);
-            $data['image'] = $path;
+            $path = Storage::putFileAs('public/uploads', $file, $filename);
+            $data['image'] = $filename;
         }
+
+        unset($data['img_destinasi']);
+
+
+        // die("belum masukkan imagenya");
 
         Destination::create($data);
         return redirect()->route('destination.view');
@@ -71,9 +76,9 @@ class WebDestinationController extends Controller
 
         if ($request->hasFile('image')) {
             $path = "uploads/" . $destination->image;
-            if (File::exists($path)) {
-                File::delete($path);
-            }
+            // if (File::exists($path)) {
+            //     File::delete($path);
+            // }
             $file = $request->file('image');
             $filename = date('YmdHi') . '.' . $file->getClientOriginalExtension();
             $file->move('uploads', $filename);
@@ -88,9 +93,9 @@ class WebDestinationController extends Controller
     {
         $destination = Destination::findOrFail($id);
         $path = "uploads/" . $destination->image;
-        if (File::exists($path)) {
-            File::delete($path);
-        }
+        // if (File::exists($path)) {
+        //     File::delete($path);
+        // }
         $destination->delete();
         return redirect()->route('destination.view')->with('success', 'Berhasil menghapus Destinasi');
     }
