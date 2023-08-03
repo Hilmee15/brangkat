@@ -17,7 +17,7 @@
     {{-- My Style --}}
     <link rel="stylesheet" href="/css/style.css">
 
-    <title>Portal Berita</title>
+    <title>Brangkat | Find Your Destination</title>
 </head>
 
 <body>
