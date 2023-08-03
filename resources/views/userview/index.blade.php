@@ -11,32 +11,56 @@
 </head>
 
 <body>
-    <header id="header">
-        <a href="http://127.0.0.1:8000/main" class="logo">Brangkat</a>
-        <ul>
-            <li><a href="http://127.0.0.1:8000/article">Destinations Article</a></li>
-        </ul>
-        <div id="main-bg">
-            <p>Wanna find a Destination?</p>
-            <h1>B'rangkat</h1>
-            <p>is your solution</p>
-        </div>
-    </header>
-    <section>
-        <a href="#dst" id="btn">Find Your Destination</a>
-    </section>
-
-    <section id="dst">
-        @foreach ($data as $item)
-            <figure>
-                <img src=" {{ url('/') . Storage::url('uploads/' . $item->image) }}" alt="">
-                <figcaption>{{ $item->name }}</figcaption>
-            </figure>
-        @endforeach
-    </section>
+    <video autoplay muted loop src="{{ asset('video/aerial_beach_footage.mp4') }}" id="videoBackground"></video>
+    <div class="text">
+        <h1>B'rangkat</h1>
+        <h3>Cari Destinasi Liburanmu</h3>
+    </div>
+    <div class="mySlides">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image3.jpg" alt="Image 3">
+    </div>
+    <div class="dot" id="dot1"></div>
+    <div class="dot" id="dot2"></div>
+    <div class="dot" id="dot3"></div>
     <footer>
         <p>Copyright &copy; 2023 Brangkat</p>
     </footer>
+
+    <script>
+        var slideIndex = 0;
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 0;
+            }
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].className = "active";
+            setTimeout(showSlides, 5000);
+        }
+
+        window.onload = showSlides;
+
+        showSlides();
+    </script>
 </body>
 
-</html>
+</html+>
