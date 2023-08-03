@@ -3,7 +3,7 @@
 html,
 body {
     scroll-behavior: smooth;
-    background-color: #202C59;
+    background-color: #29ABCA;
 
     padding: 0;
     margin: 0;
@@ -33,204 +33,89 @@ body {
 
 /* /scrollbar */
 
-#header .logo {
-    color: #fff;
-    font-weight: 700;
-    font-size: 2em;
-    text-decoration: none;
+video {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-#header ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-#header ul li {
-    list-style: none;
-    margin-left: 20px;
+.text h1 {
+  font-size: 60px;
 }
 
-#header ul li a {
-    text-decoration: none;
-    padding: 6px 15px;
-    color: #fff;
-    border-radius: 20px;
+.text h3 {
+  font-size: 30px;
 }
 
-#header ul li a:hover,
-#header ul li a.active {
-    background: #fff;
-    color: #094b65;
+.mySlides {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
 }
 
-section img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
+.mySlides li {
+  float: left;
+  width: 20%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
-#btn {
-    text-decoration: none;
-    display: inline-block;
-    padding: 8px 30px;
-    background: #fff;
-    color: #094b65;
-    font-size: 1.2em;
-    font-weight: 500;
-    letter-spacing: 2px;
-    border-radius: 40px;
-    transform: translateY(100px);
+.mySlides img {
+  width: 100%;
 }
 
-header>#main-bg {
-    height: 90vh;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("http://127.0.0.1:8000/image/background.png");
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.mySlides .prev, .mySlides .next {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  cursor: pointer;
+  background-color: #000;
+  opacity: 0.5;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-#main-bg>h1 {
-    color: #FFF;
-    font-size: 96px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.mySlides .prev:hover, .mySlides .next:hover {
+  opacity: 1;
 }
 
-#main-bg>p {
-    color: #FFF;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.mySlides .next {
+  right: 0;
 }
 
-section {
-    padding-left: 5rem;
-    padding-right: 2.5rem;
-
-    margin-top: 2.5rem;
-    margin-bottom: 5rem;
-}
-
-/* padding for ancre link */
-section>h1::before {
-    display: block;
-    content: " ";
-    margin-top: -6.5rem;
-    height: 6.5rem;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-section#dst {
-    display: flex;
-    flex-direction: row;
-    height: 15rem;
-    overflow-x: scroll;
-    gap: 1rem;
-
-    scroll-behavior: smooth;
-    padding-bottom: 1rem;
-
-    scroll-snap-align: start;
-    scroll-snap-type: x mandatory;
-}
-
-section#dst>figure {
-    min-width: 30rem;
-    max-width: 30rem;
-
-    margin: 0;
-    position: relative;
-}
-
-section#dst>figure>figcaption {
-    opacity: 0;
-
-    font-weight: 400;
-    font-size: 17px;
-    text-align: center;
-
-    padding-bottom: 1rem;
-
-    color: white;
-    position: absolute;
-
-    width: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.75) 100%);
-
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    transition: opacity 500ms;
-}
-
-section#dst>figure>img {
-    border-radius: 1rem;
-    min-width: 30rem;
-    width: 30rem;
-    height: 100%;
-    object-fit: cover;
-
-    flex-grow: 1;
-
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+.active {
+  opacity: 1;
 }
 
 footer {
-    padding: 1rem;
+    background-color: #fff;
     text-align: center;
-    color: white;
-    background-color: #1A2347;
+    padding: 25px;
 }
 
-@media (max-width: 768px) {
-    header>#main-bg {
-        height: calc(100vh - 10px);
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.9) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/keraton.png);
-        background-size: cover;
-        background-position: center;
-    }
-
-    section>img {
-        margin: 0;
-        width: 100%;
-    }
-
-    section>img.right,
-    section>img.left {
-        float: none;
-    }
-
-    section {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-
-    section>#dst {
-        height: 20rem;
-    }
-
-    section>#dst>figure {
-        min-width: calc(100vw - 3rem);
-        max-width: none;
-    }
-
-    section>#dst>figure>img {
-        min-width: auto;
-        width: 100%;
-    }
+footer>p {
+    color: #094b65;
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
