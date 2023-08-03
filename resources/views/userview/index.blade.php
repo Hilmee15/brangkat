@@ -28,10 +28,10 @@
 
     <section id="dst">
         @foreach ($data as $item)
-        <figure>
-            <img src=" {{ url('/') . Storage::url('uploads/',$data->image) }}" alt="" width="50">
-            <figcaption>{{ $data->name }}</figcaption>
-        </figure>
+            <figure>
+                <img src=" {{ url('/') . Storage::url('uploads/' . $item->image) }}" alt="">
+                <figcaption>{{ $item->name }}</figcaption>
+            </figure>
         @endforeach
     </section>
     <footer>
