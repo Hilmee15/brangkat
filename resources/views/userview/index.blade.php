@@ -17,19 +17,7 @@
         <h3>Cari Destinasi Liburanmu</h3>
     </div>
     <div class="mySlides">
-        <img src="image1.jpg" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image3.jpg" alt="Image 3">
+        <img src="" alt="Image 1">
     </div>
     <div class="dot" id="dot1"></div>
     <div class="dot" id="dot2"></div>
